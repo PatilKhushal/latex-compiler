@@ -24,7 +24,7 @@ module.exports = (req, res) => {
   exec(`pdflatex -output-directory=/tmp -interaction=nonstopmode /tmp/${filename}.tex`, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
-      return res.status(500).send(`Error compiling LaTeX => ${error}`);
+      return res.status(500).end(`Error compiling LaTeX => ${error}`);
     }
     const pdf = fs.readFileSync(`/tmp/${filename}.pdf`);
     res.setHeader('Content-Type', 'application/pdf');
