@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "api/compile-latex.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/api/compile-latex", "dest": "/api/compile-latex.js" }
+    ]
+  }
+  
