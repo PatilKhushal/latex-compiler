@@ -1,12 +1,13 @@
 const { exec } = require('child_process');
 const fs = require('fs');
 
-module.exports = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS'); // Allow specific methods
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Allow specific headers
+module.exports = (req, res) => {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Handle preflight requests
+  // Handle preflight OPTIONS request
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
